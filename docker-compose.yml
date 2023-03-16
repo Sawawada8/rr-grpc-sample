@@ -1,0 +1,49 @@
+version: '3'
+services:
+
+  server:
+    build:
+      context: '.'
+      dockerfile: './docker/php/Dockerfile'
+    volumes:
+      - './server/:/app'
+      # enable intl 
+      - './docker/php/docker-php-ext-intl.ini:/usr/local/etc/php/conf.d/docker-php-ext-intl.ini'
+    tty: true
+    working_dir: '/app'
+    depends_on:
+      - mysql
+    # extra_hosts:
+      # - 'host.docker.internal:host-gateway'
+  client:
+    volumes:
+      - './client/:/app'
+
+  mysql:
+    image: 'mysql:8.0'
+    ports:
+      - '3336:3306'
+    expose:
+      - 3336
+    environment:
+        MYSQL_DATABASE: sample
+        MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+        MYSQL_TCP_PORT: 3336
+    volumes:
+      - rrGrpcSampleVolume:/var/lib/mysql
+      - ./docker/mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf 
+
+  phpmyadmin:
+    image: 'phpmyadmin/phpmyadmin'
+    ports: 
+      - '2223:80'
+    environment:
+      PMA_HOST: 'mysql'
+      PMA_PORT: '3336'
+    depends_on:
+      - mysql
+
+
+volumes:
+  rrGrpcSampleVolume:
+    driver: local
