@@ -1,0 +1,6 @@
+{
+    "require": {
+        "spiral/roadrunner": "*",
+        "nyholm/psr7": "*"
+    }
+}
