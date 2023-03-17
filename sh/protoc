@@ -1,6 +1,7 @@
 #!/bin/bash
 docker run -v $PWD/protos:/defs namely/protoc-all -f $1 -l \
-php
+go
+# php
 # ruby #or go, csharp, etc
 
 # https://github.com/namely/docker-protoc

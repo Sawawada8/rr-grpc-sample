@@ -4,7 +4,9 @@
     "homepage": "https://github.com/Sawadada8/rr-grpc-sample",
     "type": "project",
     "require": {
-        "spiral/roadrunner": "^2.0",
-        "nyholm/psr7": "*"
+        "spiral/roadrunner": "^2.12",
+        "nyholm/psr7": "*",
+        "spiral/roadrunner-grpc": "^2.0",
+        "grpc/grpc": "^1.52"
     }
 }
