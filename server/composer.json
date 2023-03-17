@@ -1,6 +1,10 @@
 {
+    "name": "demo/rr",
+    "description": "demo rr",
+    "homepage": "https://github.com/Sawadada8/rr-grpc-sample",
+    "type": "project",
     "require": {
-        "spiral/roadrunner": "*",
+        "spiral/roadrunner": "^2.0",
         "nyholm/psr7": "*"
     }
 }

@@ -9,9 +9,7 @@ include "vendor/autoload.php";
 // $worker = new RoadRunner\Worker($relay);
 
 
-$worker = RoadRunner\Worker::create();
-echo get_class_methods($worker);
-exit;
+$worker = Spiral\RoadRunner\Worker::create();
 $psrFactory = new Psr7\Factory\Psr17Factory();
 
 $psr7 = new RoadRunner\Http\PSR7Worker($worker, $psrFactory, $psrFactory, $psrFactory);
