@@ -22,7 +22,7 @@ while (true) {
             // Termination request received
             break;
         }
-    } catch (\Throwablee) {
+    } catch (\Throwablee $e) {
 
         $psr7->respond(new Psr7\Response(400)); // Bad Request
         continue;
@@ -31,7 +31,7 @@ while (true) {
     try {
         // Application code logic
         $psr7->respond(new Psr7\Response(200, [], 'Hello RoadRunner!'));
-    } catch (\Throwable) {
+    } catch (\Throwable $e) {
 
         $psr7->respond(new Psr7\Response(500, [], 'Something Went Wrong!'));
     }

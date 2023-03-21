@@ -3,7 +3,12 @@ FROM php:8.1-cli
 
 RUN apt-get update && \
     apt-get install -y vim curl git zip unzip \
-        libicu-dev
+        libicu-dev procps
+
+# xdebug
+RUN pecl install xdebug && docker-php-ext-enable xdebug
+COPY ./docker/php/php.ini /usr/local/etc/php/
+
 
 COPY --from=composer:2.5.4 /usr/bin/composer /usr/bin/composer
 

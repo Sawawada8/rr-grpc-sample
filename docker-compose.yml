@@ -9,7 +9,7 @@ services:
     ports:
       - 8888:8080
     volumes:
-      - './server/:/app'
+      - './:/app'
     tty: true
     working_dir: '/app'
     # depends_on:
